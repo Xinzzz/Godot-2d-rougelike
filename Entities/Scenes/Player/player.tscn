@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://buws5vldnicd4"]
+[gd_scene load_steps=11 format=3 uid="uid://buws5vldnicd4"]
 
 [ext_resource type="Texture2D" uid="uid://c0rnmfxff7yy5" path="res://Sprites/Player_metroid.png" id="1_dubta"]
 [ext_resource type="Texture2D" uid="uid://2nyof2tt3gye" path="res://Sprites/gun_1.png" id="2_63j5y"]
+[ext_resource type="PackedScene" uid="uid://cng60jjh4u8cb" path="res://UI/Scenes/mouse_icon.tscn" id="3_30fh8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
 radius = 8.0
@@ -136,17 +137,19 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 
 [node name="Player_collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 15)
+position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_cvnsp")
 disabled = true
 
 [node name="Player_sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
 texture = ExtResource("1_dubta")
 hframes = 8
 vframes = 7
 frame = 1
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, -9)
 
 [node name="Hitbox_collider" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 11)
@@ -161,11 +164,13 @@ libraries = {
 autoplay = "Idle"
 
 [node name="Gun_handler" type="Node2D" parent="."]
-position = Vector2(2, 9)
+position = Vector2(0, 1)
 
 [node name="Gun_sprite" type="Sprite2D" parent="Gun_handler"]
 position = Vector2(10, 0)
 texture = ExtResource("2_63j5y")
 
 [node name="Bullet_point" type="Marker2D" parent="Gun_handler"]
-position = Vector2(17, -1)
+position = Vector2(16, 0)
+
+[node name="Mouse_icon" parent="." instance=ExtResource("3_30fh8")]
